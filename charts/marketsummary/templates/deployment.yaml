@@ -15,14 +15,7 @@ spec:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/agent-init-first: "true"
         vault.hashicorp.com/role: "{{ .Values.productName }}-auth-role"
-        vault.hashicorp.com/agent-inject-secret-mongodb.json: "mongodb/creds/{{ .Values.productName }}-{{ .Values.nodeEnv }}"
-        vault.hashicorp.com/agent-inject-template-mongodb.json: |
-          {{- with secret "mongodb/creds/demo-lab-staging" -}}
-          {
-            "username": "{{ .Data.username }}",
-            "password": "{{ .Data.password }}"
-          }
-          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-mongodb: "mongodb/creds/{{ .Values.productName }}-{{ .Values.nodeEnv }}"
       labels:
         app: {{ .Chart.Name }}
         version: {{ .Values.version }}

@@ -1,14 +1,9 @@
 const fs = require("fs");
 const util = require("util");
 const mongoose = require("mongoose");
-<<<<<<< HEAD
-
-let connection;
-=======
 const watch = require("node-watch");
 
 let connection, watcher;
->>>>>>> solution1-update
 
 const getConnection = () => {
     if (!connection) {
