@@ -12,6 +12,18 @@ fullnameOverride: ""
 workload: springtrader
 nodeEnv:
 
+podAnnotations:
+  vault.hashicorp.com/agent-inject: "true"
+  vault.hashicorp.com/role: "test"
+  vault.hashicorp.com/agent-inject-secret-mongodb.json: "database/creds/mongodb"
+  vault.hashicorp.com/agent-inject-template-mongodb.json: |
+    {{- with secret "database/creds/mongodb" -}}
+    {
+      "username": "{{ .Data.username }}",
+      "password": "{{ .Data.password }}"
+    }
+    {{- end }}
+
 service:
   type: ClusterIP
   port: 5555
