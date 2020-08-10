@@ -14,15 +14,10 @@ spec:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/agent-init-first: "true"
+        vault.hashicorp.com/agent-inject-secret-mongodb.json: "{{ .Values.productName }}-{{ .Values.nodeEnv }}"
         vault.hashicorp.com/role: "{{ .Values.productName }}-auth-role"
-        vault.hashicorp.com/agent-inject-secret-mongodb.json: "mongodb/creds/{{ .Values.productName }}-{{ .Values.nodeEnv }}"
         vault.hashicorp.com/agent-inject-template-mongodb.json: |
-          {{- with secret "mongodb/creds/{{ .Values.productName }}-{{ .Values.nodeEnv }}" -}}
-          {
-            "username": "{{ .Data.username }}",
-            "password": "{{ .Data.password }}"
-          }
-          {{- end }}
+{{ printf (.Files.Get "conf/vault.conf") .Values.productName .Values.nodeEnv | indent 10 }}
       labels:
         app: {{ .Chart.Name }}
         version: {{ .Values.version }}
