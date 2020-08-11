@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const watch = require("node-watch");
 
 let connection, watcher;
+const MONGODB_CREDENTIALS_FILE = "/vault/secrets/mongodb.json";
 
 const getConnection = () => {
     if (!connection) {
