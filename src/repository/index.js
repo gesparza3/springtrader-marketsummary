@@ -16,7 +16,7 @@ const getConnection = () => {
 
 const setConnection = async (username, password) => {
   const newConnection = await mongoose.createConnection(
-    `mongodb://${username}:${password}@mongodb.${process.env.DATABASE_NAMESPACE}.svc.cluster.local:27017/${process.env.NODE_ENV}`
+    `mongodb://${username}:${password}@mongodb.${process.env.DATABASE_NAMESPACE}.svc.cluster.local:27017/${process.env.NODE_ENV}?authSource=admin`
   );
 
   connection = newConnection;
