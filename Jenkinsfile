@@ -7,7 +7,7 @@ pipeline {
                 }
                 steps {
                     container('skaffold') {
-                        sh "docker build -t springtrader-marketsummary"
+                        sh "docker build -t springtrader-marketsummary ."
                     }
                 }
             }
