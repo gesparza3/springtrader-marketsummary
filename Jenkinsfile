@@ -13,7 +13,7 @@ pipeline {
       //  }
       //}
       steps {
-        container('minimal') {
+        container('agent') {
           sh "docker build -t springtrader ."
         }
       }
