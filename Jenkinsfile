@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       agent {
-        label "lead-toolchain-skaffold"
+        label "minimal"
       }
       //steps {
       //  container('skaffold') {
