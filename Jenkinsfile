@@ -7,7 +7,7 @@ pipeline {
       }
       steps {
         container('skaffold') {
-          sh "skaffold build --file-output=image.json"
+          sh "SKAFFOLD_DEFAULT_REPO=artifactory-jcr.toolchain.lead.lab.liatrio-rtx.com/general-docker skaffold build --file-output=image.json"
           stash includes: 'image.json', name: 'build'
           sh "rm image.json"
         }
