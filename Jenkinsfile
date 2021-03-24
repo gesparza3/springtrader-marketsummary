@@ -5,11 +5,16 @@ pipeline {
       agent {
         label "lead-toolchain-skaffold"
       }
+      //steps {
+      //  container('skaffold') {
+      //    sh "SKAFFOLD_DEFAULT_REPO=artifactory-jcr.toolchain.lead.lab.liatrio-rtx.com/general-docker skaffold build --file-output=image.json"
+      //    stash includes: 'image.json', name: 'build'
+      //    sh "rm image.json"
+      //  }
+      //}
       steps {
-        container('skaffold') {
-          sh "SKAFFOLD_DEFAULT_REPO=artifactory-jcr.toolchain.lead.lab.liatrio-rtx.com/general-docker skaffold build --file-output=image.json"
-          stash includes: 'image.json', name: 'build'
-          sh "rm image.json"
+        container('minimal') {
+          sh "docker build -t springtrader ."
         }
       }
     }
