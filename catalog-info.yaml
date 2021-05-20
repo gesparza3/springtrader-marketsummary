@@ -4,13 +4,13 @@ metadata:
   name: springtrader-marketsummary
   description: Slack bot used to recognize one another’s accomplishments and give shoutouts
   annotations:
-    github.com/project-slug: 'gesparza3/springtrader-marketsummary'
+    github.com/project-slug: gesparza3/springtrader-marketsummary
     backstage.io/techdocs-ref: url:https://github.com/gesparza3/springtrader-marketsummary
   tags:
     - node
     - javascript
 spec:
   type: service
-  lifecycle: development
-  owner: liatrio
+  lifecycle: experimental
+  owner: gesparza3
   system: springtrader

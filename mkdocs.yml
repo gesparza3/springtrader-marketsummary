@@ -1,8 +1,11 @@
-site_name: 'example-docs'
-
-nav:
-  - 'index.md'
-
+site_name: 'springtrader-marketsummary'
+site_description: 'Main documentation for Springtrader marketsummary'
 
 plugins:
   - techdocs-core
+
+nav:
+  - Getting Started: 'getting-started.md'
+  - Troubleshooting: 'troubleshooting.md'
+
+
