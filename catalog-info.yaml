@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: springtrader-marketsummary
+  description: Slack bot used to recognize one another’s accomplishments and give shoutouts
+  annotations:
+    github.com/project-slug: 'gesparza3/springtrader-marketsummary'
+  tags:
+    - node
+    - javascript
+spec:
+  type: service
+  lifecycle: development
+  owner: gesparza3
+  system: springtrader
