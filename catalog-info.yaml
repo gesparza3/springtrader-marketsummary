@@ -12,5 +12,5 @@ metadata:
 spec:
   type: service
   lifecycle: development
-  owner: gesparza3
+  owner: liatrio
   system: springtrader
